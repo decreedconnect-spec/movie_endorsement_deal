@@ -62,7 +62,7 @@
         }
         
         .hollywood-logo {
-            height: 80px;
+            height: 70px;
             margin-bottom: 15px;
             filter: brightness(0) invert(1);
         }
@@ -293,7 +293,7 @@
             .hollywood-logo {
                 margin-right: 20px;
                 margin-bottom: 0;
-                height: 60px;
+                height: 80px;
             }
         }
         
@@ -313,11 +313,19 @@
             .btn {
                 width: auto;
             }
+            
+            .hollywood-logo {
+                height: 90px;
+            }
         }
         
         @media (min-width: 992px) {
             .container {
                 max-width: 960px;
+            }
+            
+            .hollywood-logo {
+                height: 100px;
             }
         }
         
@@ -389,6 +397,35 @@
             border-radius: 5px;
         }
         
+        /* Dark section with visible text */
+        .dark-section {
+            background-color: #000;
+            color: var(--light-text);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--universal-gold);
+        }
+        
+        /* Fix for text visibility in dark section */
+        .dark-section .card {
+            background-color: #1a1a1a;
+            border: 2px solid var(--universal-gold);
+        }
+        
+        .dark-section .card-title {
+            color: var(--universal-gold);
+        }
+        
+        .dark-section p {
+            color: var(--light-text);
+        }
+        
+        .dark-section .benefits-list li {
+            color: var(--light-text);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
         /* Mobile menu for small screens */
         .mobile-menu {
             display: none;
@@ -421,28 +458,13 @@
             margin-bottom: 5px;
         }
         
-        /* Additional styling for white/black theme */
-        .dark-section {
-            background-color: #000;
-            color: var(--light-text);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 12px;
-            border: 2px solid var(--universal-gold);
-        }
-        
-        .dark-section .card-title {
-            color: var(--universal-gold);
-        }
-        
-        .dark-section .benefits-list li {
-            color: var(--light-text);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
         @media (max-width: 576px) {
             .mobile-menu {
                 display: block;
+            }
+            
+            .hollywood-logo {
+                height: 60px;
             }
         }
     </style>
