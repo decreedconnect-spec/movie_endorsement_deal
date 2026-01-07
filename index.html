@@ -3,353 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Studios: "Socrates: The Unexamined Life" - Investment Proposal</title>
+    <title>Universal Studios Investment Opportunity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-dark: #0033a0;
-            --primary-medium: #0066cc;
-            --accent-gold: #ffb81c;
-            --accent-green: #27ae60;
-            --light-text: #f5f5f5;
-            --dark-text: #333333;
-            --medium-gray: #7f8c8d;
-            --section-bg: rgba(255, 255, 255, 0.05);
-            --investor-section: rgba(0, 102, 204, 0.1);
-            --universal-blue: #0033a0;
-            --universal-light: #0066cc;
-        }
-        
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        :root {
+            --universal-blue: #0033a0;
+            --universal-light: #0066cc;
+            --accent-gold: #ffb81c;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --light-text: #f5f5f5;
+            --medium-text: #cccccc;
+            --border-color: #333333;
         }
         
         body {
-            background: linear-gradient(135deg, #001a4d 0%, #0033a0 100%);
+            background-color: var(--dark-bg);
             color: var(--light-text);
             line-height: 1.6;
-            padding: 20px;
+            overflow-x: hidden;
         }
         
-        .proposal-container {
-            max-width: 1100px;
+        /* Mobile-first responsive design */
+        .container {
+            max-width: 100%;
+            padding: 15px;
             margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.95);
-            color: var(--dark-text);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, var(--universal-blue), var(--universal-light));
+            padding: 25px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            position: relative;
             overflow: hidden;
-            position: relative;
-        }
-        
-        .translation-controls {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .translation-notice {
-            background: var(--accent-gold);
-            color: var(--dark-text);
-            padding: 10px 15px;
-            text-align: center;
-            font-weight: bold;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .header {
-            background: linear-gradient(rgba(0, 33, 160, 0.85), rgba(0, 33, 160, 0.85)), 
-                        url('https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 40px 30px;
-            text-align: center;
-            position: relative;
-            color: white;
-        }
-        
-        .header::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 184, 28, 0.1);
         }
         
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-        }
-        
-        .logo {
-            height: 80px;
-            margin-right: 15px;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .project-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            color: var(--accent-gold);
-        }
-        
-        .project-subtitle {
-            font-size: 1.4rem;
-            font-weight: 300;
-            margin-bottom: 20px;
-            color: var(--light-text);
-        }
-        
-        .grabbing-heading {
-            font-size: 1.8rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-            margin: 25px 0;
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 184, 28, 0.15);
-            border-left: 4px solid var(--accent-gold);
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .logline {
-            font-size: 1.2rem;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto 30px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border-left: 4px solid var(--accent-gold);
-            color: white;
-        }
-        
-        .presented-by {
-            display: inline-block;
-            padding: 8px 20px;
-            background: var(--accent-gold);
-            color: var(--universal-blue);
-            font-weight: 600;
-            border-radius: 30px;
-            margin-top: 10px;
-        }
-        
-        .document-id {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            color: white;
-        }
-        
-        .content-section {
-            padding: 30px;
-        }
-        
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--universal-blue);
-            color: var(--universal-blue);
-        }
-        
-        .investor-section {
-            background: var(--investor-section);
-            border-radius: 8px;
-            padding: 25px;
-            margin: 25px 0;
-        }
-        
-        .company-section {
-            background: rgba(255, 184, 28, 0.05);
-            border-radius: 8px;
-            padding: 25px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent-gold);
-        }
-        
-        .section-content {
-            margin-bottom: 30px;
-        }
-        
-        .key-details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .detail-card {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--universal-blue);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .investor-card {
-            border-left: 4px solid var(--accent-green);
-            background: rgba(39, 174, 96, 0.05);
-        }
-        
-        .detail-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--universal-blue);
-        }
-        
-        .investor-title {
-            color: var(--accent-green);
-        }
-        
-        /* NEW: Animated Profit Table Styles */
-        .animated-table-container {
-            margin: 30px 0;
-            overflow: hidden;
-        }
-        
-        .animated-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .animated-table th {
-            background: var(--universal-blue);
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-        
-        .animated-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .animated-table tr:nth-child(even) {
-            background: rgba(0, 102, 204, 0.05);
-        }
-        
-        .profit-bar-container {
-            position: relative;
-            width: 100%;
-            background: #e0e0e0;
-            border-radius: 10px;
-            height: 25px;
-            overflow: hidden;
-            margin-top: 5px;
-        }
-        
-        .profit-bar {
-            height: 100%;
-            border-radius: 10px;
-            width: 0%;
-            transition: width 2s ease-in-out;
-            position: relative;
-        }
-        
-        .profit-bar-value {
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-weight: bold;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-        
-        .profit-scale {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-            font-size: 0.8rem;
-            color: var(--medium-gray);
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .comparison-table th {
-            background: var(--universal-blue);
-            color: white;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .comparison-table td {
-            padding: 10px 12px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background: rgba(0, 102, 204, 0.05);
-        }
-        
-        .budget-breakdown {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 20px 0;
-        }
-        
-        .budget-item {
-            flex: 0 0 48%;
             margin-bottom: 15px;
         }
         
-        .budget-bar {
-            height: 20px;
-            background: #e0e0e0;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 5px;
+        .logo {
+            height: 50px;
+            margin-right: 15px;
+            filter: brightness(0) invert(1);
         }
         
-        .budget-fill {
-            height: 100%;
-            background: var(--universal-blue);
-            border-radius: 10px;
-            width: 0%; /* Initial width for animation */
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-wrap: balance;
         }
         
-        .investment-form {
-            background: white;
-            padding: 25px;
+        .tagline {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .notice {
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 12px;
             border-radius: 8px;
-            margin: 25px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 15px 0;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        /* Card layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-gold);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+        }
+        
+        .benefits-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            color: var(--accent-gold);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        /* Table styles for mobile */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 500px; /* Ensures table doesn't break on small screens */
+        }
+        
+        th, td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        th {
+            background-color: var(--universal-blue);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Investment calculator */
+        .calculator {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         label {
@@ -360,468 +175,388 @@
         
         input, select {
             width: 100%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            background: white;
-            color: var(--dark-text);
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--light-text);
+            font-size: 1rem;
         }
         
-        .terms-container {
-            max-height: 300px;
-            overflow-y: auto;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.05);
-            border-radius: 5px;
-            margin: 20px 0;
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-        
-        .terms-section {
-            margin-bottom: 15px;
-        }
-        
-        .terms-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            color: var(--universal-blue);
-        }
-        
-        .profit-timeline {
-            display: flex;
-            justify-content: space-between;
-            margin: 30px 0;
-            position: relative;
-        }
-        
-        .timeline-item {
-            text-align: center;
-            flex: 1;
-            position: relative;
-        }
-        
-        .timeline-marker {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--universal-blue);
-            color: white;
-            margin: 0 auto 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
             font-weight: bold;
-        }
-        
-        .timeline-item:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            top: 20px;
-            right: -50%;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
             width: 100%;
-            height: 2px;
-            background: var(--universal-blue);
-            z-index: 1;
+            font-size: 1rem;
         }
         
-        .timeline-content {
-            margin-top: 10px;
-            font-size: 0.9rem;
+        .btn:hover {
+            background-color: #e6a400;
         }
         
-        .testimonial-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 25px 0;
-        }
-        
-        .testimonial {
-            flex: 1;
-            min-width: 250px;
-            background: white;
+        /* Jensen Ackles endorsement section */
+        .endorsement {
+            background-color: var(--card-bg);
             padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-gold);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: var(--universal-blue);
-        }
-        
-        .endorser-section {
+            border-radius: 12px;
+            margin: 20px 0;
             display: flex;
-            gap: 20px;
-            margin: 25px 0;
+            flex-direction: column;
             align-items: center;
-        }
-        
-        .endorser-image {
-            flex: 0 0 200px;
-        }
-        
-        .endorser-image img {
-            width: 100%;
-            border-radius: 8px;
-            object-fit: cover;
-            height: 250px;
-        }
-        
-        .endorser-info {
-            flex: 1;
-        }
-        
-        footer {
-            background: var(--universal-blue);
-            padding: 20px;
             text-align: center;
-            font-size: 0.9rem;
-            color: white;
         }
         
-        .contact-info {
-            margin-top: 10px;
+        .endorsement-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-gold);
         }
         
-        @media (max-width: 768px) {
-            .project-title {
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+            
+            h1 {
                 font-size: 2.2rem;
             }
             
-            .key-details-grid {
-                grid-template-columns: 1fr;
+            .tagline {
+                font-size: 1.1rem;
             }
             
-            .budget-item {
-                flex: 0 0 100%;
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .profit-timeline {
-                flex-direction: column;
+            .endorsement {
+                flex-direction: row;
+                text-align: left;
             }
             
-            .timeline-item:not(:last-child)::after {
-                display: none;
+            .endorsement-image {
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
             }
             
-            .timeline-item {
-                margin-bottom: 30px;
+            h1 {
+                font-size: 2.5rem;
             }
             
-            .endorser-section {
-                flex-direction: column;
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            .endorser-image {
-                flex: 0 0 auto;
+            .btn {
+                width: auto;
             }
-            
-            .translation-controls {
-                position: static;
-                margin-bottom: 20px;
-                width: 100%;
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
             }
-            
-            .animated-table th, .animated-table td {
-                padding: 8px 10px;
-                font-size: 0.9rem;
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+        }
+        
+        /* Animation for table rows */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Profit visualization bars */
+        .profit-bar-container {
+            height: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+        
+        .profit-bar {
+            height: 100%;
+            border-radius: 12px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+            background: linear-gradient(90deg, var(--universal-blue), var(--accent-gold));
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        /* Investment section */
+        .investment-section {
+            background: linear-gradient(135deg, rgba(0, 51, 160, 0.1), rgba(255, 184, 28, 0.1));
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-gold);
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 10px;
+        }
+        
+        /* Mobile menu for small screens */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--universal-blue);
+            padding: 10px;
+            z-index: 1000;
+        }
+        
+        .mobile-menu-nav {
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+        
+        .mobile-menu-item i {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu {
+                display: block;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Translation Controls -->
-    <div class="translation-controls">
-        <select id="languageSelect" onchange="changeLanguage(this.value)">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
-            <option value="it">Italiano</option>
-            <option value="pt">Português</option>
-            <option value="ja">日本語</option>
-            <option value="zh">中文</option>
-            <option value="ar">العربية</option>
-        </select>
-    </div>
-    
-    <div class="proposal-container">
-        <div class="translation-notice" id="translationNotice">
-            This document can be translated using your browser's built-in translation feature (Right-click > Translate to [language])
-        </div>
-        
-        <header class="header">
-            <div class="document-id">ID: 008/C29/2025</div>
-            <div class="header-content">
-                <div class="logo-container">
-                    <img src="https://i.imgur.com/HsbhaoU.png" alt="Universal Studios Logo" class="logo">
-                    <h1 class="project-title">Socrates: The Unexamined Life</h1>
-                </div>
-                <p class="project-subtitle">A Major Historical Epic Investment Opportunity</p>
-                <div class="logline">
-                    A sweeping historical epic that dramatizes the life, philosophy, and tragic trial of Socrates, capturing his profound impact on Western thought through his provocative dialogues and unwavering commitment to truth.
-                </div>
-                <div class="presented-by">Presented by Universal Studios • For 2026</div>
-                
-                <div class="grabbing-heading">
-                    LIMITED INVESTMENT OPPORTUNITY: 500% RETURN IN 6 MONTHS • MINIMUM INVESTMENT: $1,000
-                </div>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <h1>Universal Studios</h1>
+            </div>
+            <div class="tagline">Investment Opportunity: "Socrates: The Unexamined Life"</div>
+            <div class="notice">
+                <i class="fas fa-bolt"></i> LIMITED OFFER: 500% ROI IN 6 MONTHS • REMOTE POSITIONS AVAILABLE
             </div>
         </header>
         
-        <section class="content-section">
-            <div class="company-section">
-                <h2 class="section-title">Universal Studios: 100+ Years of Excellence</h2>
-                <p>Founded in 1912, Universal Studios has been a leader in entertainment for over a century. With extensive experience in producing acclaimed historical epics, we bring unparalleled expertise to "Socrates: The Unexamined Life".</p>
-                
-                <div class="key-details-grid">
-                    <div class="detail-card">
-                        <div class="detail-title">Years in Operation</div>
-                        <div>112+ Years</div>
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-title">Major Productions</div>
-                        <div>Jurassic Park, Fast & Furious, The Mummy, Gladiator</div>
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-title">Box Office Revenue (2023)</div>
-                        <div>$4.9 Billion</div>
-                    </div>
-                    <div class="detail-card">
-                        <div class="detail-title">Awards Recognition</div>
-                        <div>50+ Academy Awards</div>
-                    </div>
-                </div>
+        <section class="card-grid">
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-film"></i> Film Investment</h3>
+                <p>Participate in Universal Studios' upcoming historical epic with exceptional return potential.</p>
+                <ul class="benefits-list">
+                    <li>Minimum Investment: $1,000</li>
+                    <li>Maximum Corporate Investment: $500,000</li>
+                    <li>Individual Maximum: $100,000</li>
+                    <li>500% Return on Investment</li>
+                </ul>
             </div>
             
-            <h2 class="section-title">Project Endorsement: Jensen Ackles</h2>
-            <div class="endorser-section">
-                <div class="endorser-image">
-                    <img src="https://i.imgur.com/WzEEBPe.png" alt="Jensen Ackles">
-                </div>
-                <div class="endorser-info">
-                    <h3>Jensen Ackles - Executive Producer & Creative Consultant</h3>
-                    <p>Known for his roles in Supernatural and The Boys, Jensen Ackles brings his creative vision and production expertise to this project. With over 20 years in the entertainment industry, Ackles has developed a keen eye for compelling storytelling and authentic characters.</p>
-                    <p>"Socrates' story is more relevant today than ever. His commitment to truth and intellectual honesty resonates with contemporary audiences. I'm proud to be part of bringing this pivotal historical figure to life in a way that's both authentic and accessible."</p>
-                    <p><strong>Key Contributions:</strong> Creative direction, historical accuracy consultation, marketing strategy</p>
-                </div>
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-laptop-house"></i> Remote Partnership</h3>
+                <p>Work-from-home opportunity promoting Universal Studios films.</p>
+                <ul class="benefits-list">
+                    <li>Fully Remote Position</li>
+                    <li>Flexible Hours (5-10 hrs/week)</li>
+                    <li>Weekly Stipend: Up to $3,000</li>
+                    <li>Performance-Based Compensation</li>
+                </ul>
             </div>
             
-            <h2 class="section-title">Investment Analysis</h2>
-            <div class="section-content">
-                <div class="investor-section">
-                    <div class="key-details-grid">
-                        <div class="detail-card investor-card">
-                            <div class="detail-title investor-title">Minimum Investment</div>
-                            <div>$1,000.00</div>
-                        </div>
-                        <div class="detail-card investor-card">
-                            <div class="detail-title investor-title">Corporate Maximum</div>
-                            <div>$500,000</div>
-                        </div>
-                        <div class="detail-card investor-card">
-                            <div class="detail-title investor-title">Individual Maximum</div>
-                            <div>$100,000</div>
-                        </div>
-                        <div class="detail-card investor-card">
-                            <div class="detail-title investor-title">Return Rate</div>
-                            <div>500% (5X)</div>
-                        </div>
-                    </div>
-                    
-                    <p><strong>Duration:</strong> 6 months after project completion</p>
-                    
-                    <h3>Profit Timeline Projection</h3>
-                    <div class="profit-timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-marker">1</div>
-                            <strong>Investment Phase</strong>
-                            <div class="timeline-content">Initial 2 months for capital raising and pre-production</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">2</div>
-                            <strong>Production Phase</strong>
-                            <div class="timeline-content">Months 3-6: Active filming and principal photography</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">3</div>
-                            <strong>Post-Production</strong>
-                            <div class="timeline-content">Months 7-10: Editing, VFX, and final cut completion</div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-marker">4</div>
-                            <strong>Revenue Generation</strong>
-                            <div class="timeline-content">Months 11-16: Theatrical release and streaming deals</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <h3>Investment Calculator</h3>
-                <div class="investment-form">
-                    <div class="form-group">
-                        <label for="investmentAmount">Investment Amount ($):</label>
-                        <input type="number" id="investmentAmount" min="1000" max="500000" step="1000" value="10000">
-                    </div>
-                    <div class="form-group">
-                        <label for="investorType">Investor Type:</label>
-                        <select id="investorType">
-                            <option value="individual">Individual</option>
-                            <option value="corporate">Corporate</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <button onclick="calculateReturn()" style="padding: 10px 20px; background: var(--universal-blue); color: white; border: none; border-radius: 5px; cursor: pointer;">Calculate Return</button>
-                    </div>
-                    <div id="returnResult" style="margin-top: 20px; font-weight: bold; color: var(--universal-blue);"></div>
-                </div>
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-history"></i> Track Record</h3>
+                <p>100+ years of entertainment industry excellence.</p>
+                <ul class="benefits-list">
+                    <li>Founded: 1912</li>
+                    <li>500+ Major Productions</li>
+                    <li>$4.9B Box Office Revenue (2023)</li>
+                    <li>50+ Academy Awards</li>
+                </ul>
             </div>
+        </section>
+        
+        <section class="investment-section">
+            <h2 class="section-title">Investment Details</h2>
             
-            <!-- Updated: Animated Profit Table with 500% ROI -->
-            <h2 class="section-title">Profit Projection Visualization</h2>
-            <div class="animated-table-container">
-                <table class="animated-table">
+            <div class="table-container">
+                <table>
                     <thead>
                         <tr>
-                            <th>Investment Amount</th>
-                            <th>ROI Percentage</th>
-                            <th>Projected Return</th>
+                            <th>Investment</th>
+                            <th>ROI</th>
+                            <th>Return</th>
                             <th>Visualization</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="animate">
                             <td>$10,000</td>
                             <td>500%</td>
                             <td>$50,000</td>
                             <td>
                                 <div class="profit-bar-container">
-                                    <div class="profit-bar" style="background: linear-gradient(90deg, #ff6b6b, #ff8e8e);" data-width="50">
-                                        <span class="profit-bar-value">500%</span>
-                                    </div>
-                                </div>
-                                <div class="profit-scale">
-                                    <span>0%</span>
-                                    <span>500%</span>
-                                    <span>1000%</span>
+                                    <div class="profit-bar" style="width: 50%">500%</div>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="animate">
                             <td>$25,000</td>
                             <td>500%</td>
                             <td>$125,000</td>
                             <td>
                                 <div class="profit-bar-container">
-                                    <div class="profit-bar" style="background: linear-gradient(90deg, #4ecdc4, #70d6d0);" data-width="50">
-                                        <span class="profit-bar-value">500%</span>
-                                    </div>
-                                </div>
-                                <div class="profit-scale">
-                                    <span>0%</span>
-                                    <span>500%</span>
-                                    <span>1000%</span>
+                                    <div class="profit-bar" style="width: 50%">500%</div>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="animate">
                             <td>$50,000</td>
                             <td>500%</td>
                             <td>$250,000</td>
                             <td>
                                 <div class="profit-bar-container">
-                                    <div class="profit-bar" style="background: linear-gradient(90deg, #45b7d1, #6dc7e0);" data-width="50">
-                                        <span class="profit-bar-value">500%</span>
-                                    </div>
-                                </div>
-                                <div class="profit-scale">
-                                    <span>0%</span>
-                                    <span>500%</span>
-                                    <span>1000%</span>
+                                    <div class="profit-bar" style="width: 50%">500%</div>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="animate">
                             <td>$100,000</td>
                             <td>500%</td>
                             <td>$500,000</td>
                             <td>
                                 <div class="profit-bar-container">
-                                    <div class="profit-bar" style="background: linear-gradient(90deg, #96ceb4, #b1d9c7);" data-width="50">
-                                        <span class="profit-bar-value">500%</span>
-                                    </div>
-                                </div>
-                                <div class="profit-scale">
-                                    <span>0%</span>
-                                    <span>500%</span>
-                                    <span>1000%</span>
+                                    <div class="profit-bar" style="width: 50%">500%</div>
                                 </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        </section>
+        
+        <section class="calculator">
+            <h2 class="section-title">Investment Calculator</h2>
             
-            <h2 class="section-title">Testimonials & Track Record</h2>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        "Universal Studios' historical epics consistently outperform expectations. Their track record with films like 'Gladiator' shows they understand how to blend historical accuracy with compelling storytelling."
-                    </div>
-                    <div class="testimonial-author">- Financial Times Entertainment Analyst</div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        "Our investment in Universal's 'The Mummy' franchise returned 350% over 5 years. Their production expertise and global distribution network are unparalleled."
-                    </div>
-                    <div class="testimonial-author">- Silver Lake Partners Investment Report</div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        "Jensen Ackles brings a fresh perspective to historical storytelling. His involvement adds significant value to the project's creative direction."
-                    </div>
-                    <div class="testimonial-author">- Variety Magazine</div>
-                </div>
+            <div class="form-group">
+                <label for="investmentAmount">Investment Amount ($):</label>
+                <input type="number" id="investmentAmount" min="1000" max="500000" step="1000" value="10000">
             </div>
             
-            <h2 class="section-title">Commercial Performance Record</h2>
-            <div class="section-content">
-                <table class="comparison-table">
+            <div class="form-group">
+                <label for="investorType">Investor Type:</label>
+                <select id="investorType">
+                    <option value="individual">Individual</option>
+                    <option value="corporate">Corporate</option>
+                </select>
+            </div>
+            
+            <button class="btn" onclick="calculateReturn()">
+                <i class="fas fa-calculator"></i> Calculate Return
+            </button>
+            
+            <div id="returnResult" style="margin-top: 20px; font-weight: bold; color: var(--accent-gold);"></div>
+        </section>
+        
+        <section class="endorsement">
+            <img src="https://i.imgur.com/a3v4vFP.png" alt="Jensen Ackles" class="endorsement-image">
+            <div>
+                <h2 class="section-title">Jensen Ackles - Executive Producer</h2>
+                <p>"Socrates' story is more relevant today than ever. His commitment to truth and intellectual honesty resonates with contemporary audiences. I'm proud to be part of bringing this pivotal historical figure to life in a way that's both authentic and accessible."</p>
+                <p><strong>Key Contributions:</strong> Creative direction, historical accuracy consultation, marketing strategy</p>
+            </div>
+        </section>
+        
+        <section>
+            <h2 class="section-title">Universal Studios Performance Record</h2>
+            
+            <div class="table-container">
+                <table>
                     <thead>
                         <tr>
-                            <th>Universal Studios Production</th>
+                            <th>Production</th>
                             <th>Budget</th>
-                            <th>Global Box Office</th>
-                            <th>Return on Investment</th>
+                            <th>Box Office</th>
+                            <th>ROI</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="animate">
                             <td>Gladiator</td>
                             <td>$103M</td>
                             <td>$503M</td>
                             <td>388%</td>
                         </tr>
-                        <tr>
+                        <tr class="animate">
                             <td>Jurassic World</td>
                             <td>$150M</td>
                             <td>$1.67B</td>
                             <td>1013%</td>
                         </tr>
-                        <tr>
+                        <tr class="animate">
                             <td>Fast & Furious 7</td>
                             <td>$190M</td>
                             <td>$1.52B</td>
                             <td>700%</td>
                         </tr>
-                        <tr>
+                        <tr class="animate">
                             <td>The Mummy (1999)</td>
                             <td>$80M</td>
                             <td>$416M</td>
@@ -830,119 +565,63 @@
                     </tbody>
                 </table>
             </div>
-            
-            <h2 class="section-title">Terms and Conditions for Investors</h2>
-            <div class="section-content">
-                <div class="terms-container">
-                    <div class="terms-section">
-                        <div class="terms-title">1. How to become an investor</div>
-                        <p>1.1 To be an investor you must meet the following criteria:</p>
-                        <ul>
-                            <li>You must be an individual, LLP, limited company or public body</li>
-                            <li>If you are lending in your capacity as an individual you must be over 18 years old</li>
-                            <li>If you are lending in your capacity as an individual you must be a permanent resident of the UK, US, or a guarantor residing in any of the two countries</li>
-                            <li>If you are an LLP, you must have a permanent place of business in the UK and be registered with Companies House</li>
-                            <li>If you are a public body, you must be registered or formed with the relevant authority</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="terms-section">
-                        <div class="terms-title">6. Interest and repayments</div>
-                        <p>6.1 The monthly repayments due to you on each investment can be viewed in the My Account section of the platform which will be made available shortly after payment.</p>
-                        <p>6.2 All repayments and interest accrued will be paid to the investor account.</p>
-                        <p>6.3 Each investment will be for the period specified in the Investment Contract applying to it.</p>
-                        <p>6.4 All repayments will be made to investors without deduction of income tax. It is your responsibility to account for any income tax and other personal taxes that may be payable to the appropriate authorities.</p>
-                        <p>6.5 We will provide an annual statement of interest earned for tax purposes.</p>
-                    </div>
-                    
-                    <div class="terms-section">
-                        <div class="terms-title">25. Client Money</div>
-                        <p>25.1 We shall treat money that we receive from you or hold on your behalf as Client Money in accordance with financial regulations. Client Money held for you will be subject to internal control mechanisms and proper accounting procedures.</p>
-                        <p>25.2 We will make arrangements for your money to be held in a segregated account separately from our own funds with a bank appropriately authorized, in line with our regulatory obligations.</p>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label><input type="checkbox" id="agreeTerms"> I have read and agree to the Terms and Conditions</label>
-                </div>
-            </div>
         </section>
         
         <footer>
             <p>Universal Studios brings over a century of filmmaking excellence to this unparalleled investment opportunity.</p>
-            <p class="contact-info">For investment inquiries: investments@universalstudios.com | Phone: +1-800-UNIVERSAL</p>
-            <p>&copy; 2025 Universal Studios. All Rights Reserved. NBCUniversal is a subsidiary of Comcast Corporation.</p>
+            <div style="margin: 20px 0;">
+                <button class="btn" style="margin: 5px;">
+                    <i class="fas fa-download"></i> Download Prospectus
+                </button>
+                <button class="btn" style="margin: 5px; background: var(--universal-blue);">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </button>
+            </div>
+            <p>&copy; 2024 Universal Studios. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: var(--medium-text);">
+                NBCUniversal is a subsidiary of Comcast Corporation.
+            </p>
         </footer>
     </div>
+    
+    <!-- Mobile menu for small screens -->
+    <nav class="mobile-menu">
+        <div class="mobile-menu-nav">
+            <a href="#top" class="mobile-menu-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#invest" class="mobile-menu-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Invest</span>
+            </a>
+            <a href="#partner" class="mobile-menu-item">
+                <i class="fas fa-users"></i>
+                <span>Partner</span>
+            </a>
+            <a href="#contact" class="mobile-menu-item">
+                <i class="fas fa-phone"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
 
     <script>
-        // Add a simple animation to budget bars on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const budgetBars = document.querySelectorAll('.budget-fill');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.transition = 'width 1.5s ease-in-out';
-                        // Extract percentage from the text content
-                        const text = entry.target.closest('.budget-item').querySelector('div:last-child').textContent;
-                        const percentage = text.match(/\d+/)[0];
-                        entry.target.style.width = percentage + '%';
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            budgetBars.forEach(bar => {
-                // Initial width for animation
-                bar.style.width = '0%';
-                
-                // Observe after a small delay to ensure initial render
-                setTimeout(() => {
-                    observer.observe(bar);
-                }, 100);
-            });
-            
-            // Animate profit bars
-            animateProfitBars();
-            
-            // Initial calculation
-            calculateReturn();
-            
-            // Set up translation support
-            setupTranslationSupport();
-        });
-        
-        function animateProfitBars() {
-            const profitBars = document.querySelectorAll('.profit-bar');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const width = entry.target.getAttribute('data-width');
-                        entry.target.style.width = width + '%';
-                    }
-                });
-            }, { threshold: 0.3 });
-            
-            profitBars.forEach(bar => {
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    observer.observe(bar);
-                }, 100);
-            });
-        }
-        
+        // Investment calculator function
         function calculateReturn() {
             const amount = document.getElementById('investmentAmount').value;
             const investorType = document.getElementById('investorType').value;
             const maxLimit = investorType === 'corporate' ? 500000 : 100000;
             
             if (amount < 1000) {
-                document.getElementById('returnResult').innerHTML = "Minimum investment is $1,000";
+                document.getElementById('returnResult').innerHTML = 
+                    "<i class='fas fa-exclamation-triangle'></i> Minimum investment is $1,000";
                 return;
             }
             
             if (amount > maxLimit) {
-                document.getElementById('returnResult').innerHTML = `Maximum investment for ${investorType} is $${maxLimit.toLocaleString()}`;
+                document.getElementById('returnResult').innerHTML = 
+                    `<i class='fas fa-exclamation-triangle'></i> Maximum investment for ${investorType} is $${maxLimit.toLocaleString()}`;
                 return;
             }
             
@@ -950,56 +629,47 @@
             const weeklyProfit = (returnAmount - amount) / 26; // Over 6 months (26 weeks)
             
             document.getElementById('returnResult').innerHTML = 
-                `Initial Investment: $${parseInt(amount).toLocaleString()}<br>
-                 Return After 6 Months: $${returnAmount.toLocaleString()}<br>
-                 Estimated Weekly Profit: $${Math.round(weeklyProfit)}`;
+                `<div style="background: rgba(255,184,28,0.1); padding: 15px; border-radius: 8px;">
+                    <p><i class="fas fa-dollar-sign"></i> Initial Investment: $${parseInt(amount).toLocaleString()}</p>
+                    <p><i class="fas fa-rocket"></i> Return After 6 Months: $${returnAmount.toLocaleString()}</p>
+                    <p><i class="fas fa-calendar-week"></i> Estimated Weekly Profit: $${Math.round(weeklyProfit)}</p>
+                </div>`;
         }
         
-        function setupTranslationSupport() {
-            // Hide translation notice after 10 seconds
-            setTimeout(function() {
-                document.getElementById('translationNotice').style.display = 'none';
-            }, 10000);
+        // Animate elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial calculation
+            calculateReturn();
             
-            // Check if browser supports translation
-            if (window.chrome && window.chrome.runtime) {
-                document.getElementById('translationNotice').innerHTML = 
-                    "This page can be translated using Chrome's built-in translation feature (Right-click > Translate to [language])";
-            }
-        }
-        
-        function changeLanguage(lang) {
-            // In a real implementation, this would trigger the translation
-            alert(`Translation to ${lang} would be initiated here. In a real implementation, this would connect to a translation API.`);
+            // Add animation to table rows with delay
+            const tableRows = document.querySelectorAll('.animate');
+            tableRows.forEach((row, index) => {
+                row.style.opacity = '0';
+                setTimeout(() => {
+                    row.style.transition = 'opacity 0.6s ease-out';
+                    row.style.opacity = '1';
+                }, index * 200);
+            });
             
-            // For demo purposes, show a message
-            const notice = document.getElementById('translationNotice');
-            notice.innerHTML = `Translation to ${getLanguageName(lang)} requested. Please use your browser's translation feature for full translation.`;
-            notice.style.display = 'block';
-            
-            setTimeout(function() {
-                notice.style.display = 'none';
-            }, 5000);
-        }
+            // Animate profit bars
+            const profitBars = document.querySelectorAll('.profit-bar');
+            profitBars.forEach((bar, index) => {
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.transition = 'width 1.5s ease-in-out';
+                    bar.style.width = '50%';
+                }, index * 300 + 500);
+            });
+        });
         
-        function getLanguageName(code) {
-            const languages = {
-                'en': 'English',
-                'es': 'Spanish',
-                'fr': 'French',
-                'de': 'German',
-                'it': 'Italian',
-                'pt': 'Portuguese',
-                'ja': 'Japanese',
-                'zh': 'Chinese',
-                'ar': 'Arabic'
-            };
-            return languages[code] || code;
-        }
-        
-        // Enable right-click translation by ensuring content is translatable
-        document.addEventListener('contextmenu', function(e) {
-            // Allow default right-click menu for translation
+        // Handle form submissions
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (!this.getAttribute('onclick')) {
+                    e.preventDefault();
+                    alert('Thank you for your interest! A representative will contact you shortly.');
+                }
+            });
         });
     </script>
 </body>
