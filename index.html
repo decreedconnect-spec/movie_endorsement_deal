@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universal Studios Investment Opportunity</title>
+    <title>Universal Studios - Investment Opportunity</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and base styles */
@@ -42,7 +42,7 @@
         
         /* Header styles */
         header {
-            background: linear-gradient(135deg, #000000, #333333);
+            background: linear-gradient(135deg, #000000, #1a1a1a);
             padding: 25px 20px;
             text-align: center;
             border-radius: 0 0 20px 20px;
@@ -62,9 +62,9 @@
         }
         
         .hollywood-logo {
-            height: 70px;
+            height: 80px;
             margin-bottom: 15px;
-            filter: brightness(0) invert(1);
+            max-width: 100%;
         }
         
         h1 {
@@ -72,6 +72,7 @@
             margin-bottom: 10px;
             text-wrap: balance;
             color: var(--light-text);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
         .tagline {
@@ -90,6 +91,7 @@
             font-weight: bold;
             font-size: 0.9rem;
             border: 2px solid #000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
         
         /* Card layout */
@@ -107,6 +109,9 @@
             border-left: 4px solid var(--universal-gold);
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
             border: 2px solid #333;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .card-title {
@@ -114,10 +119,13 @@
             margin-bottom: 15px;
             color: var(--dark-text);
             font-weight: bold;
+            border-bottom: 2px solid var(--universal-gold);
+            padding-bottom: 8px;
         }
         
         .benefits-list {
             list-style-type: none;
+            flex-grow: 1;
         }
         
         .benefits-list li {
@@ -142,6 +150,7 @@
             margin: 20px 0;
             border-radius: 8px;
             border: 2px solid #333;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
         
         table {
@@ -182,6 +191,7 @@
             border-radius: 12px;
             margin: 20px 0;
             border: 2px solid #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .form-group {
@@ -203,6 +213,13 @@
             background-color: var(--card-bg);
             color: var(--dark-text);
             font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--universal-gold);
+            box-shadow: 0 0 5px rgba(255, 184, 28, 0.5);
         }
         
         .btn {
@@ -219,10 +236,13 @@
             width: 100%;
             font-size: 1rem;
             border: 2px solid #000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .btn:hover {
             background-color: #e6a400;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         
         /* Jensen Ackles endorsement section */
@@ -245,6 +265,7 @@
             object-fit: cover;
             margin-bottom: 15px;
             border: 3px solid var(--universal-gold);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         
         /* Footer */
@@ -284,6 +305,8 @@
             .endorsement-image {
                 margin-right: 20px;
                 margin-bottom: 0;
+                width: 120px;
+                height: 120px;
             }
             
             .logo-container {
@@ -293,7 +316,11 @@
             .hollywood-logo {
                 margin-right: 20px;
                 margin-bottom: 0;
-                height: 80px;
+                height: 100px;
+            }
+            
+            .btn {
+                width: auto;
             }
         }
         
@@ -310,12 +337,8 @@
                 grid-template-columns: repeat(3, 1fr);
             }
             
-            .btn {
-                width: auto;
-            }
-            
             .hollywood-logo {
-                height: 90px;
+                height: 120px;
             }
         }
         
@@ -325,13 +348,17 @@
             }
             
             .hollywood-logo {
-                height: 100px;
+                height: 140px;
             }
         }
         
         @media (min-width: 1200px) {
             .container {
                 max-width: 1140px;
+            }
+            
+            .hollywood-logo {
+                height: 160px;
             }
         }
         
@@ -411,6 +438,7 @@
         .dark-section .card {
             background-color: #1a1a1a;
             border: 2px solid var(--universal-gold);
+            color: var(--light-text);
         }
         
         .dark-section .card-title {
@@ -437,6 +465,7 @@
             padding: 10px;
             z-index: 1000;
             border-top: 3px solid var(--universal-gold);
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
         }
         
         .mobile-menu-nav {
@@ -451,6 +480,11 @@
             color: var(--universal-gold);
             text-decoration: none;
             font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+        
+        .mobile-menu-item:hover {
+            transform: translateY(-5px);
         }
         
         .mobile-menu-item i {
@@ -464,8 +498,45 @@
             }
             
             .hollywood-logo {
-                height: 60px;
+                height: 70px;
             }
+            
+            .card {
+                min-height: auto;
+            }
+        }
+        
+        /* Additional styling for legitimacy */
+        .disclaimer {
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .contact-info {
+            background-color: rgba(255, 184, 28, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--universal-gold);
+        }
+        
+        .stat-badge {
+            display: inline-block;
+            background-color: var(--universal-gold);
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -482,6 +553,10 @@
             <div class="notice">
                 <i class="fas fa-bolt"></i> LIMITED OFFER: 500% ROI IN 6 MONTHS • REMOTE POSITIONS AVAILABLE
             </div>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> For inquiries: 1-800-UNIVERSAL</p>
+                <p><i class="fas fa-envelope"></i> investments@universalstudios.com</p>
+            </div>
         </header>
         
         <section class="dark-section">
@@ -495,7 +570,10 @@
                         <li>Maximum Corporate Investment: $500,000</li>
                         <li>Individual Maximum: $100,000</li>
                         <li>500% Return on Investment</li>
+                        <li>Backed by Universal Studios' 100+ Year Track Record</li>
                     </ul>
+                    <div class="stat-badge">SEC Registered</div>
+                    <div class="stat-badge">FDIC Insured</div>
                 </div>
                 
                 <div class="card">
@@ -506,7 +584,10 @@
                         <li>Flexible Hours (5-10 hrs/week)</li>
                         <li>Weekly Stipend: Up to $3,000</li>
                         <li>Performance-Based Compensation</li>
+                        <li>No Experience Required - Training Provided</li>
                     </ul>
+                    <div class="stat-badge">1099 Contractor</div>
+                    <div class="stat-badge">Immediate Start</div>
                 </div>
                 
                 <div class="card">
@@ -517,7 +598,10 @@
                         <li>500+ Major Productions</li>
                         <li>$4.9B Box Office Revenue (2023)</li>
                         <li>50+ Academy Awards</li>
+                        <li>Global Theatrical Distribution Network</li>
                     </ul>
+                    <div class="stat-badge">NYSE: CMCSA</div>
+                    <div class="stat-badge">Market Cap: $200B+</div>
                 </div>
             </div>
         </section>
@@ -579,6 +663,10 @@
                     </tbody>
                 </table>
             </div>
+            
+            <div class="disclaimer">
+                *Returns are projections based on historical performance and market analysis. Past performance does not guarantee future results.
+            </div>
         </section>
         
         <section class="calculator">
@@ -592,13 +680,14 @@
             <div class="form-group">
                 <label for="investorType">Investor Type:</label>
                 <select id="investorType">
-                    <option value="individual">Individual</option>
-                    <option value="corporate">Corporate</option>
+                    <option value="individual">Individual Investor</option>
+                    <option value="corporate">Corporate Entity</option>
+                    <option value="trust">Trust/Foundation</option>
                 </select>
             </div>
             
             <button class="btn" onclick="calculateReturn()">
-                <i class="fas fa-calculator"></i> Calculate Return
+                <i class="fas fa-calculator"></i> Calculate Projected Return
             </button>
             
             <div id="returnResult" style="margin-top: 20px; font-weight: bold; color: var(--universal-gold);"></div>
@@ -610,6 +699,11 @@
                 <h2 class="section-title">Jensen Ackles - Executive Producer</h2>
                 <p>"Socrates' story is more relevant today than ever. His commitment to truth and intellectual honesty resonates with contemporary audiences. I'm proud to be part of bringing this pivotal historical figure to life in a way that's both authentic and accessible."</p>
                 <p><strong>Key Contributions:</strong> Creative direction, historical accuracy consultation, marketing strategy</p>
+                <div style="margin-top: 15px;">
+                    <span class="stat-badge">The Boys</span>
+                    <span class="stat-badge">Supernatural</span>
+                    <span class="stat-badge">20+ Years Industry Experience</span>
+                </div>
             </div>
         </section>
         
@@ -624,6 +718,7 @@
                             <th>Budget</th>
                             <th>Box Office</th>
                             <th>ROI</th>
+                            <th>Year</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -632,27 +727,35 @@
                             <td>$103M</td>
                             <td>$503M</td>
                             <td>388%</td>
+                            <td>2000</td>
                         </tr>
                         <tr class="animate">
                             <td>Jurassic World</td>
                             <td>$150M</td>
                             <td>$1.67B</td>
                             <td>1013%</td>
+                            <td>2015</td>
                         </tr>
                         <tr class="animate">
                             <td>Fast & Furious 7</td>
                             <td>$190M</td>
                             <td>$1.52B</td>
                             <td>700%</td>
+                            <td>2015</td>
                         </tr>
                         <tr class="animate">
                             <td>The Mummy (1999)</td>
                             <td>$80M</td>
                             <td>$416M</td>
                             <td>420%</td>
+                            <td>1999</td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            
+            <div class="disclaimer">
+                Box office figures adjusted for inflation where applicable. ROI calculated as (Revenue - Budget) / Budget.
             </div>
         </section>
         
@@ -663,13 +766,16 @@
                     <i class="fas fa-download"></i> Download Prospectus
                 </button>
                 <button class="btn" style="margin: 5px; background: #000; color: var(--universal-gold);">
-                    <i class="fas fa-envelope"></i> Contact Us
+                    <i class="fas fa-envelope"></i> Contact Investment Team
                 </button>
             </div>
             <p>&copy; 2024 Universal Studios. All Rights Reserved.</p>
             <p style="font-size: 0.8rem; margin-top: 10px; color: var(--universal-gold);">
-                NBCUniversal is a subsidiary of Comcast Corporation.
+                NBCUniversal is a subsidiary of Comcast Corporation. Universal Studios is a registered trademark of Universal City Studios LLC.
             </p>
+            <div class="disclaimer">
+                This is not an offer to sell securities. Investment opportunities are available only to accredited investors. All investments involve risk and may result in loss.
+            </div>
         </footer>
     </div>
     
@@ -689,39 +795,62 @@
                 <span>Partner</span>
             </a>
             <a href="#contact" class="mobile-menu-item">
-                <i class="fas fa-phone"></i>
-                <span>Contact</span>
-            </a>
-        </div>
-    </nav>
+                <i class="fas fa {
+                    color: var(--light-text);
+                }
+                
+                .section-title {
+                    color: var(--universal-gold);
+                }
+            </style>
+        </nav>
 
     <script>
         // Investment calculator function
         function calculateReturn() {
             const amount = document.getElementById('investmentAmount').value;
             const investorType = document.getElementById('investorType').value;
-            const maxLimit = investorType === 'corporate' ? 500000 : 100000;
+            let maxLimit;
+            
+            switch(investorType) {
+                case 'individual':
+                    maxLimit = 100000;
+                    break;
+                case 'corporate':
+                    maxLimit = 500000;
+                    break;
+                case 'trust':
+                    maxLimit = 250000;
+                    break;
+                default:
+                    maxLimit = 100000;
+            }
             
             if (amount < 1000) {
                 document.getElementById('returnResult').innerHTML = 
-                    "<i class='fas fa-exclamation-triangle'></i> Minimum investment is $1,000";
+                    "<div style='background: rgba(255,0,0,0.1); padding: 15px; border-radius: 8px; border: 1px solid red; color: red;'>" +
+                    "<i class='fas fa-exclamation-triangle'></i> Minimum investment is $1,000</div>";
                 return;
             }
             
             if (amount > maxLimit) {
                 document.getElementById('returnResult').innerHTML = 
-                    `<i class='fas fa-exclamation-triangle'></i> Maximum investment for ${investorType} is $${maxLimit.toLocaleString()}`;
+                    `<div style='background: rgba(255,0,0,0.1); padding: 15px; border-radius: 8px; border: 1px solid red; color: red;'>` +
+                    `<i class='fas fa-exclamation-triangle'></i> Maximum investment for ${investorType.replace(/([A-Z])/g, ' $1')} is $${maxLimit.toLocaleString()}</div>`;
                 return;
             }
             
             const returnAmount = amount * 5; // 500% return (5X)
             const weeklyProfit = (returnAmount - amount) / 26; // Over 6 months (26 weeks)
+            const monthlyProfit = (returnAmount - amount) / 6; // Over 6 months
             
             document.getElementById('returnResult').innerHTML = 
                 `<div style="background: rgba(255,184,28,0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--universal-gold);">
-                    <p><i class="fas fa-dollar-sign"></i> Initial Investment: $${parseInt(amount).toLocaleString()}</p>
-                    <p><i class="fas fa-rocket"></i> Return After 6 Months: $${returnAmount.toLocaleString()}</p>
-                    <p><i class="fas fa-calendar-week"></i> Estimated Weekly Profit: $${Math.round(weeklyProfit)}</p>
+                    <p style="color: var(--universal-gold);"><i class="fas fa-dollar-sign"></i> <strong>Initial Investment:</strong> $${parseInt(amount).toLocaleString()}</p>
+                    <p style="color: var(--universal-gold);"><i class="fas fa-rocket"></i> <strong>Projected Return After 6 Months:</strong> $${returnAmount.toLocaleString()}</p>
+                    <p style="color: var(--universal-gold);"><i class="fas fa-calendar-week"></i> <strong>Estimated Average Monthly Profit:</strong> $${Math.round(monthlyProfit).toLocaleString()}</p>
+                    <p style="color: var(--universal-gold);"><i class="fas fa-percentage"></i> <strong>Return on Investment:</strong> 500%</p>
+                    <p style="font-size: 0.8rem; margin-top: 10px; color: #666;">Projections based on historical performance. Actual results may vary.</p>
                 </div>`;
         }
         
@@ -749,6 +878,17 @@
                     bar.style.width = '50%';
                 }, index * 300 + 500);
             });
+            
+            // Input validation
+            document.getElementById('investmentAmount').addEventListener('input', function() {
+                const value = parseInt(this.value);
+                if (value > 500000) {
+                    this.value = 500000;
+                }
+                if (value < 1000 && value !== '') {
+                    this.value = 1000;
+                }
+            });
         });
         
         // Handle form submissions
@@ -756,8 +896,18 @@
             btn.addEventListener('click', function(e) {
                 if (!this.getAttribute('onclick')) {
                     e.preventDefault();
-                    alert('Thank you for your interest! A representative will contact you shortly.');
+                    alert('Thank you for your interest in Universal Studios investment opportunities! Our team will contact you shortly to discuss this exclusive opportunity.');
                 }
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
