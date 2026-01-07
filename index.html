@@ -15,19 +15,20 @@
         }
         
         :root {
-            --universal-blue: #0033a0;
-            --universal-light: #0066cc;
-            --accent-gold: #ffb81c;
-            --dark-bg: #121212;
-            --card-bg: #1e1e1e;
-            --light-text: #f5f5f5;
-            --medium-text: #cccccc;
+            --universal-gold: #ffb81c;
+            --dark-bg: #000000;
+            --card-bg: #ffffff;
+            --light-text: #ffffff;
+            --dark-text: #000000;
             --border-color: #333333;
+            --table-header-bg: #000000;
+            --table-row-bg: #ffffff;
+            --table-alt-bg: #f5f5f5;
         }
         
         body {
             background-color: var(--dark-bg);
-            color: var(--light-text);
+            color: var(--dark-text);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -41,7 +42,7 @@
         
         /* Header styles */
         header {
-            background: linear-gradient(135deg, var(--universal-blue), var(--universal-light));
+            background: linear-gradient(135deg, #000000, #333333);
             padding: 25px 20px;
             text-align: center;
             border-radius: 0 0 20px 20px;
@@ -49,6 +50,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            border-bottom: 5px solid var(--universal-gold);
         }
         
         .logo-container {
@@ -56,11 +58,12 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 15px;
+            flex-direction: column;
         }
         
-        .logo {
-            height: 50px;
-            margin-right: 15px;
+        .hollywood-logo {
+            height: 80px;
+            margin-bottom: 15px;
             filter: brightness(0) invert(1);
         }
         
@@ -68,22 +71,25 @@
             font-size: 1.8rem;
             margin-bottom: 10px;
             text-wrap: balance;
+            color: var(--light-text);
         }
         
         .tagline {
             font-size: 1rem;
             margin-bottom: 15px;
-            color: rgba(255, 255, 255, 0.9);
+            color: var(--universal-gold);
+            font-weight: bold;
         }
         
         .notice {
-            background-color: var(--accent-gold);
+            background-color: var(--universal-gold);
             color: #000;
             padding: 12px;
             border-radius: 8px;
             margin: 15px 0;
             font-weight: bold;
             font-size: 0.9rem;
+            border: 2px solid #000;
         }
         
         /* Card layout */
@@ -98,14 +104,16 @@
             background-color: var(--card-bg);
             padding: 20px;
             border-radius: 12px;
-            border-left: 4px solid var(--accent-gold);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--universal-gold);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+            border: 2px solid #333;
         }
         
         .card-title {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--accent-gold);
+            color: var(--dark-text);
+            font-weight: bold;
         }
         
         .benefits-list {
@@ -114,45 +122,57 @@
         
         .benefits-list li {
             padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
+            color: var(--dark-text);
         }
         
         .benefits-list li::before {
             content: '✓';
-            color: var(--accent-gold);
+            color: var(--universal-gold);
             margin-right: 10px;
             font-weight: bold;
+            font-size: 1.2rem;
         }
         
-        /* Table styles for mobile */
+        /* Colored table styles */
         .table-container {
             overflow-x: auto;
             margin: 20px 0;
             border-radius: 8px;
+            border: 2px solid #333;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 500px; /* Ensures table doesn't break on small screens */
-        }
-        
-        th, td {
-            padding: 12px 10px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
+            min-width: 500px;
         }
         
         th {
-            background-color: var(--universal-blue);
-            color: white;
-            font-weight: 600;
+            background-color: var(--table-header-bg);
+            color: var(--universal-gold);
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 1rem;
+            border-bottom: 3px solid var(--universal-gold);
         }
         
-        tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.05);
+        td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            background-color: var(--table-row-bg);
+        }
+        
+        tr:nth-child(even) td {
+            background-color: var(--table-alt-bg);
+        }
+        
+        tr:hover td {
+            background-color: #e8e8e8;
         }
         
         /* Investment calculator */
@@ -161,6 +181,7 @@
             padding: 20px;
             border-radius: 12px;
             margin: 20px 0;
+            border: 2px solid #333;
         }
         
         .form-group {
@@ -171,21 +192,22 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--dark-text);
         }
         
         input, select {
             width: 100%;
             padding: 12px;
             border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background-color: rgba(255, 255, 255, 0.1);
-            color: var(--light-text);
+            border: 2px solid #333;
+            background-color: var(--card-bg);
+            color: var(--dark-text);
             font-size: 1rem;
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--accent-gold);
+            background-color: var(--universal-gold);
             color: #000;
             padding: 12px 25px;
             border-radius: 6px;
@@ -196,6 +218,7 @@
             transition: background-color 0.3s;
             width: 100%;
             font-size: 1rem;
+            border: 2px solid #000;
         }
         
         .btn:hover {
@@ -212,6 +235,7 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            border: 2px solid #333;
         }
         
         .endorsement-image {
@@ -220,7 +244,7 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
-            border: 3px solid var(--accent-gold);
+            border: 3px solid var(--universal-gold);
         }
         
         /* Footer */
@@ -228,8 +252,10 @@
             text-align: center;
             padding: 30px 20px;
             margin-top: 30px;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: #000;
             border-radius: 20px 20px 0 0;
+            border-top: 5px solid var(--universal-gold);
+            color: var(--light-text);
         }
         
         /* Responsive adjustments */
@@ -258,6 +284,16 @@
             .endorsement-image {
                 margin-right: 20px;
                 margin-bottom: 0;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+            }
+            
+            .hollywood-logo {
+                margin-right: 20px;
+                margin-bottom: 0;
+                height: 60px;
             }
         }
         
@@ -310,11 +346,12 @@
         /* Profit visualization bars */
         .profit-bar-container {
             height: 25px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #ddd;
             border-radius: 12px;
             overflow: hidden;
             margin: 10px 0;
             position: relative;
+            border: 1px solid #333;
         }
         
         .profit-bar {
@@ -322,7 +359,7 @@
             border-radius: 12px;
             width: 0;
             transition: width 1.5s ease-in-out;
-            background: linear-gradient(90deg, var(--universal-blue), var(--accent-gold));
+            background: linear-gradient(90deg, #000, var(--universal-gold));
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -334,18 +371,22 @@
         
         /* Investment section */
         .investment-section {
-            background: linear-gradient(135deg, rgba(0, 51, 160, 0.1), rgba(255, 184, 28, 0.1));
+            background: linear-gradient(135deg, rgba(255, 184, 28, 0.1), rgba(255, 255, 255, 0.1));
             padding: 20px;
             border-radius: 12px;
             margin: 20px 0;
+            border: 2px solid #333;
         }
         
         .section-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--accent-gold);
-            border-left: 4px solid var(--accent-gold);
+            color: var(--universal-gold);
+            border-left: 4px solid var(--universal-gold);
             padding-left: 10px;
+            background-color: #000;
+            padding: 10px;
+            border-radius: 5px;
         }
         
         /* Mobile menu for small screens */
@@ -355,9 +396,10 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: var(--universal-blue);
+            background-color: #000;
             padding: 10px;
             z-index: 1000;
+            border-top: 3px solid var(--universal-gold);
         }
         
         .mobile-menu-nav {
@@ -369,7 +411,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: white;
+            color: var(--universal-gold);
             text-decoration: none;
             font-size: 0.8rem;
         }
@@ -377,6 +419,25 @@
         .mobile-menu-item i {
             font-size: 1.2rem;
             margin-bottom: 5px;
+        }
+        
+        /* Additional styling for white/black theme */
+        .dark-section {
+            background-color: #000;
+            color: var(--light-text);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--universal-gold);
+        }
+        
+        .dark-section .card-title {
+            color: var(--universal-gold);
+        }
+        
+        .dark-section .benefits-list li {
+            color: var(--light-text);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         @media (max-width: 576px) {
@@ -390,46 +451,52 @@
     <div class="container">
         <header>
             <div class="logo-container">
-                <h1>Universal Studios</h1>
+                <img src="https://i.imgur.com/x2v08fp.png" alt="Universal Studios Hollywood" class="hollywood-logo">
+                <div>
+                    <h1>Universal Studios</h1>
+                    <div class="tagline">Investment Opportunity: "Socrates: The Unexamined Life"</div>
+                </div>
             </div>
-            <div class="tagline">Investment Opportunity: "Socrates: The Unexamined Life"</div>
             <div class="notice">
                 <i class="fas fa-bolt"></i> LIMITED OFFER: 500% ROI IN 6 MONTHS • REMOTE POSITIONS AVAILABLE
             </div>
         </header>
         
-        <section class="card-grid">
-            <div class="card">
-                <h3 class="card-title"><i class="fas fa-film"></i> Film Investment</h3>
-                <p>Participate in Universal Studios' upcoming historical epic with exceptional return potential.</p>
-                <ul class="benefits-list">
-                    <li>Minimum Investment: $1,000</li>
-                    <li>Maximum Corporate Investment: $500,000</li>
-                    <li>Individual Maximum: $100,000</li>
-                    <li>500% Return on Investment</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h3 class="card-title"><i class="fas fa-laptop-house"></i> Remote Partnership</h3>
-                <p>Work-from-home opportunity promoting Universal Studios films.</p>
-                <ul class="benefits-list">
-                    <li>Fully Remote Position</li>
-                    <li>Flexible Hours (5-10 hrs/week)</li>
-                    <li>Weekly Stipend: Up to $3,000</li>
-                    <li>Performance-Based Compensation</li>
-                </ul>
-            </div>
-            
-            <div class="card">
-                <h3 class="card-title"><i class="fas fa-history"></i> Track Record</h3>
-                <p>100+ years of entertainment industry excellence.</p>
-                <ul class="benefits-list">
-                    <li>Founded: 1912</li>
-                    <li>500+ Major Productions</li>
-                    <li>$4.9B Box Office Revenue (2023)</li>
-                    <li>50+ Academy Awards</li>
-                </ul>
+        <section class="dark-section">
+            <h2 class="section-title">Premium Investment Opportunities</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-film"></i> Film Investment</h3>
+                    <p>Participate in Universal Studios' upcoming historical epic with exceptional return potential.</p>
+                    <ul class="benefits-list">
+                        <li>Minimum Investment: $1,000</li>
+                        <li>Maximum Corporate Investment: $500,000</li>
+                        <li>Individual Maximum: $100,000</li>
+                        <li>500% Return on Investment</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-laptop-house"></i> Remote Partnership</h3>
+                    <p>Work-from-home opportunity promoting Universal Studios films.</p>
+                    <ul class="benefits-list">
+                        <li>Fully Remote Position</li>
+                        <li>Flexible Hours (5-10 hrs/week)</li>
+                        <li>Weekly Stipend: Up to $3,000</li>
+                        <li>Performance-Based Compensation</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <h3 class="card-title"><i class="fas fa-history"></i> Track Record</h3>
+                    <p>100+ years of entertainment industry excellence.</p>
+                    <ul class="benefits-list">
+                        <li>Founded: 1912</li>
+                        <li>500+ Major Productions</li>
+                        <li>$4.9B Box Office Revenue (2023)</li>
+                        <li>50+ Academy Awards</li>
+                    </ul>
+                </div>
             </div>
         </section>
         
@@ -512,7 +579,7 @@
                 <i class="fas fa-calculator"></i> Calculate Return
             </button>
             
-            <div id="returnResult" style="margin-top: 20px; font-weight: bold; color: var(--accent-gold);"></div>
+            <div id="returnResult" style="margin-top: 20px; font-weight: bold; color: var(--universal-gold);"></div>
         </section>
         
         <section class="endorsement">
@@ -524,7 +591,7 @@
             </div>
         </section>
         
-        <section>
+        <section class="dark-section">
             <h2 class="section-title">Universal Studios Performance Record</h2>
             
             <div class="table-container">
@@ -573,12 +640,12 @@
                 <button class="btn" style="margin: 5px;">
                     <i class="fas fa-download"></i> Download Prospectus
                 </button>
-                <button class="btn" style="margin: 5px; background: var(--universal-blue);">
+                <button class="btn" style="margin: 5px; background: #000; color: var(--universal-gold);">
                     <i class="fas fa-envelope"></i> Contact Us
                 </button>
             </div>
             <p>&copy; 2024 Universal Studios. All Rights Reserved.</p>
-            <p style="font-size: 0.8rem; margin-top: 10px; color: var(--medium-text);">
+            <p style="font-size: 0.8rem; margin-top: 10px; color: var(--universal-gold);">
                 NBCUniversal is a subsidiary of Comcast Corporation.
             </p>
         </footer>
@@ -629,7 +696,7 @@
             const weeklyProfit = (returnAmount - amount) / 26; // Over 6 months (26 weeks)
             
             document.getElementById('returnResult').innerHTML = 
-                `<div style="background: rgba(255,184,28,0.1); padding: 15px; border-radius: 8px;">
+                `<div style="background: rgba(255,184,28,0.1); padding: 15px; border-radius: 8px; border: 1px solid var(--universal-gold);">
                     <p><i class="fas fa-dollar-sign"></i> Initial Investment: $${parseInt(amount).toLocaleString()}</p>
                     <p><i class="fas fa-rocket"></i> Return After 6 Months: $${returnAmount.toLocaleString()}</p>
                     <p><i class="fas fa-calendar-week"></i> Estimated Weekly Profit: $${Math.round(weeklyProfit)}</p>
