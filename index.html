@@ -174,6 +174,7 @@
             text-align: left;
             border-bottom: 1px solid #ddd;
             background-color: var(--table-row-bg);
+            color: var(--dark-text); /* Ensure text is visible */
         }
         
         tr:nth-child(even) td {
@@ -454,6 +455,19 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* Fix for table visibility in dark section */
+        .dark-section .table-container {
+            background-color: #fff;
+        }
+        
+        .dark-section table {
+            background-color: #fff;
+        }
+        
+        .dark-section th, .dark-section td {
+            color: #000;
+        }
+        
         /* Mobile menu for small screens */
         .mobile-menu {
             display: none;
@@ -555,7 +569,7 @@
             </div>
             <div class="contact-info">
                 <p><i class="fas fa-phone"></i> For inquiries: 1-800-UNIVERSAL</p>
-                <p><i class="fas fa-envelope"></i> investments@universalstudios.com</p>
+                <p><i class="fas fa-envelope"></i> universal.studio@usa.com</p>
             </div>
         </header>
         
@@ -795,15 +809,11 @@
                 <span>Partner</span>
             </a>
             <a href="#contact" class="mobile-menu-item">
-                <i class="fas fa {
-                    color: var(--light-text);
-                }
-                
-                .section-title {
-                    color: var(--universal-gold);
-                }
-            </style>
-        </nav>
+                <i class="fas fa-phone"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
 
     <script>
         // Investment calculator function
