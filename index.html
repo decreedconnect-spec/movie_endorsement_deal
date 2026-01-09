@@ -60,14 +60,11 @@
             justify-content: center;
             margin-bottom: 15px;
             flex-direction: column;
-            gap: 15px;
         }
         
         .hollywood-logo {
-            height: 90px;
-            width: auto;
+            height: 80px;
             max-width: 100%;
-            filter: invert(1);
         }
         
         h1 {
@@ -591,13 +588,24 @@
         table th, table td {
             color: var(--dark-text) !important;
         }
+        
+        /* Logo styling fix */
+        .universal-logo {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Universal_Studios_logo.svg/2560px-Universal_Studios_logo.svg.png') no-repeat center center;
+            background-size: contain;
+            height: 80px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            filter: invert(1);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo-container">
-                <img src="https://i.imgur.com/x2v08fp.png" alt="Universal Studios Hollywood" class="hollywood-logo">
+                <div class="universal-logo"></div>
                 <div>
                     <h1>Universal Studios</h1>
                     <div class="tagline">Investment Opportunity: "Socrates: The Unexamined Life"</div>
