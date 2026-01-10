@@ -21,9 +21,7 @@
             --light-text: #ffffff;
             --dark-text: #000000;
             --border-color: #333333;
-            --table-header-bg: #000000;
-            --table-row-bg: #ffffff;
-            --table-alt-bg: #f5f5f5;
+            --header-bg: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(26, 26, 26, 0.9));
         }
         
         body {
@@ -32,26 +30,113 @@
             line-height: 1.6;
             overflow-x: hidden;
             min-height: 100vh;
+            padding-bottom: 70px; /* Space for mobile menu */
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(255, 184, 28, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(255, 184, 28, 0.03) 0%, transparent 20%);
         }
         
-        /* Mobile-first responsive design */
+        /* Universal Studios themed background decorations */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.03"><circle cx="20" cy="20" r="2" fill="%23ffb81c"/><circle cx="60" cy="45" r="1.5" fill="%23ffb81c"/><circle cx="80" cy="80" r="1" fill="%23ffb81c"/><circle cx="30" cy="70" r="1.5" fill="%23ffb81c"/></svg>');
+            background-repeat: repeat;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Movie film strip border effect */
+        .film-border {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="15" viewBox="0 0 100 15"><rect width="100" height="15" fill="black"/><rect x="0" y="0" width="10" height="15" fill="%23ffb81c"/><rect x="20" y="0" width="10" height="15" fill="%23ffb81c"/><rect x="40" y="0" width="10" height="15" fill="%23ffb81c"/><rect x="60" y="0" width="10" height="15" fill="%23ffb81c"/><rect x="80" y="0" width="10" height="15" fill="%23ffb81c"/></svg>');
+            background-repeat: repeat-x;
+            z-index: 100;
+            pointer-events: none;
+        }
+        
+        .film-border.bottom {
+            top: auto;
+            bottom: 0;
+        }
+        
+        /* Spotlights effect */
+        .spotlight {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,184,28,0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.7;
+            animation: spotlightMove 20s infinite linear;
+        }
+        
+        .spotlight-1 {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .spotlight-2 {
+            top: 60%;
+            right: 15%;
+            animation-delay: -10s;
+            width: 250px;
+            height: 250px;
+        }
+        
+        @keyframes spotlightMove {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(50px, 30px); }
+            50% { transform: translate(-20px, 60px); }
+            75% { transform: translate(30px, -40px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        /* Mobile-first container */
         .container {
             width: 100%;
-            padding: 15px;
+            padding: 0 15px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Header styles */
+        /* Header styles with improved mobile layout */
         header {
-            background: linear-gradient(135deg, #000000, #1a1a1a);
-            padding: 25px 15px;
+            background: var(--header-bg);
+            padding: 20px 15px;
             text-align: center;
-            border-radius: 0 0 20px 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid var(--universal-gold);
             position: relative;
             overflow: hidden;
-            border-bottom: 5px solid var(--universal-gold);
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        
+        /* Hollywood stars effect in header */
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100" opacity="0.1"><path d="M10,10 L12,5 L14,10 L19,10 L15,13 L16,18 L12,15 L8,18 L9,13 L5,10 Z" fill="%23ffb81c"/><path d="M50,30 L52,25 L54,30 L59,30 L55,33 L56,38 L52,35 L48,38 L49,33 L45,30 Z" fill="%23ffb81c"/><path d="M90,15 L92,10 L94,15 L99,15 L95,18 L96,23 L92,20 L88,23 L89,18 L85,15 Z" fill="%23ffb81c"/><path d="M130,25 L132,20 L134,25 L139,25 L135,28 L136,33 L132,30 L128,33 L129,28 L125,25 Z" fill="%23ffb81c"/><path d="M170,20 L172,15 L174,20 L179,20 L175,23 L176,28 L172,25 L168,28 L169,23 L165,20 Z" fill="%23ffb81c"/></svg>');
+            background-repeat: repeat;
+            z-index: 0;
         }
         
         .logo-container {
@@ -60,11 +145,16 @@
             justify-content: center;
             margin-bottom: 15px;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
         
-        .hollywood-logo {
-            height: 80px;
-            max-width: 100%;
+        .logo-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(255, 184, 28, 0.5));
         }
         
         h1 {
@@ -73,13 +163,17 @@
             text-wrap: balance;
             color: var(--light-text);
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
         }
         
         .tagline {
-            font-size: 1rem;
+            font-size: 0.95rem;
             margin-bottom: 15px;
             color: var(--universal-gold);
             font-weight: bold;
+            position: relative;
+            z-index: 1;
         }
         
         .notice {
@@ -89,13 +183,28 @@
             border-radius: 8px;
             margin: 15px 0;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border: 2px solid #000;
             box-shadow: 0 2px 8px rgba(0,0,0,0.3);
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Card layout */
+        /* Contact info with improved mobile layout */
+        .contact-info {
+            background-color: rgba(255, 184, 28, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--universal-gold);
+            color: var(--light-text);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Card layout optimized for mobile */
         .card-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -106,18 +215,42 @@
         .card {
             background-color: var(--card-bg);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 10px;
             border-left: 4px solid var(--universal-gold);
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
-            border: 2px solid #333;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid rgba(51, 51, 51, 0.2);
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Movie clapperboard corner decoration */
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: 
+                linear-gradient(135deg, transparent 50%, var(--universal-gold) 50%),
+                linear-gradient(135deg, var(--universal-gold) 50%, transparent 50%);
+            background-size: 20px 20px;
+            background-position: 0 0, 20px 20px;
+            z-index: 1;
         }
         
         .card-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            margin-bottom: 12px;
             color: var(--dark-text);
             font-weight: bold;
             display: flex;
@@ -132,11 +265,12 @@
         }
         
         .benefits-list li {
-            padding: 10px 0;
+            padding: 8px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
             color: var(--dark-text);
+            font-size: 0.95rem;
         }
         
         .benefits-list li::before {
@@ -144,10 +278,10 @@
             color: var(--universal-gold);
             margin-right: 10px;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
         
-        /* Colored table styles */
+        /* Colored table styles optimized for mobile */
         .table-container {
             overflow-x: auto;
             margin: 20px 0;
@@ -156,21 +290,23 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.2);
             width: 100%;
             max-width: 100%;
+            -webkit-overflow-scrolling: touch;
+            position: relative;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 500px;
+            min-width: 480px;
         }
         
         th {
-            background-color: var(--table-header-bg);
+            background-color: #000;
             color: var(--universal-gold);
-            padding: 15px 10px;
+            padding: 14px 12px;
             text-align: left;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
             border-bottom: 3px solid var(--universal-gold);
             white-space: nowrap;
         }
@@ -179,26 +315,39 @@
             padding: 12px 10px;
             text-align: left;
             border-bottom: 1px solid #ddd;
-            background-color: var(--table-row-bg);
+            background-color: var(--card-bg);
             color: var(--dark-text);
+            font-size: 0.9rem;
         }
         
         tr:nth-child(even) td {
-            background-color: var(--table-alt-bg);
+            background-color: #f9f9f9;
         }
         
-        tr:hover td {
-            background-color: #e8e8e8;
-        }
-        
-        /* Investment calculator */
+        /* Investment calculator with improved mobile layout */
         .calculator {
             background-color: var(--card-bg);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 10px;
             margin: 20px 0;
             border: 2px solid #333;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .calculator::before {
+            content: "CALCULATE YOUR RETURN";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--universal-gold);
+            color: #000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         
         .form-group {
@@ -207,16 +356,17 @@
         
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
             color: var(--dark-text);
+            font-size: 0.95rem;
         }
         
         input, select {
             width: 100%;
             padding: 12px;
             border-radius: 6px;
-            border: 2px solid #333;
+            border: 2px solid #ccc;
             background-color: var(--card-bg);
             color: var(--dark-text);
             font-size: 1rem;
@@ -233,8 +383,8 @@
             display: inline-block;
             background-color: var(--universal-gold);
             color: #000;
-            padding: 12px 25px;
-            border-radius: 6px;
+            padding: 14px 25px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             border: none;
@@ -245,6 +395,8 @@
             border: 2px solid #000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
@@ -253,203 +405,130 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
         
-        /* Jensen Ackles endorsement section */
+        /* Button shine effect */
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        /* Jensen Ackles endorsement section with improved mobile layout */
         .endorsement {
             background-color: var(--card-bg);
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 10px;
             margin: 20px 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             border: 2px solid #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Film reel decoration */
+        .endorsement::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: 
+                radial-gradient(circle, #000 30%, transparent 30%),
+                repeating-conic-gradient(from 0deg, #000 0deg 10deg, var(--universal-gold) 10deg 20deg);
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0.7;
         }
         
         .endorsement-image {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
             border: 3px solid var(--universal-gold);
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
         }
         
-        /* Footer */
+        /* Footer with improved mobile layout */
         footer {
             text-align: center;
-            padding: 30px 20px;
+            padding: 25px 15px;
             margin-top: 30px;
             background-color: #000;
-            border-radius: 20px 20px 0 0;
             border-top: 5px solid var(--universal-gold);
             color: var(--light-text);
             width: 100%;
+            position: relative;
+        }
+        
+        /* Hollywood walk of fame stars in footer */
+        footer::before {
+            content: "";
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="30" opacity="0.2"><path d="M20,15 L22,10 L24,15 L29,15 L25,18 L26,23 L22,20 L18,23 L19,18 L15,15 Z" fill="%23ffb81c"/><path d="M70,15 L72,10 L74,15 L79,15 L75,18 L76,23 L72,20 L68,23 L69,18 L65,15 Z" fill="%23ffb81c"/><path d="M120,15 L122,10 L124,15 L129,15 L125,18 L126,23 L122,20 L118,23 L119,18 L115,15 Z" fill="%23ffb81c"/><path d="M170,15 L172,10 L174,15 L179,15 L175,18 L176,23 L172,20 L168,23 L169,18 L165,15 Z" fill="%23ffb81c"/><path d="M220,15 L222,10 L224,15 L229,15 L225,18 L226,23 L222,20 L218,23 L219,18 L215,15 Z" fill="%23ffb81c"/><path d="M270,15 L272,10 L274,15 L279,15 L275,18 L276,23 L272,20 L268,23 L269,18 L265,15 Z" fill="%23ffb81c"/><path d="M320,15 L322,10 L324,15 L329,15 L325,18 L326,23 L322,20 L318,23 L319,18 L315,15 Z" fill="%23ffb81c"/><path d="M370,15 L372,10 L374,15 L379,15 L375,18 L376,23 L372,20 L368,23 L369,18 L365,15 Z" fill="%23ffb81c"/></svg>');
+            background-repeat: repeat-x;
         }
         
         footer p {
             color: var(--light-text);
-        }
-        
-        /* Responsive adjustments */
-        @media (min-width: 576px) {
-            .container {
-                max-width: 540px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.1rem;
-            }
-            
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-            
-            .endorsement {
-                flex-direction: row;
-                text-align: left;
-            }
-            
-            .endorsement-image {
-                margin-right: 20px;
-                margin-bottom: 0;
-            }
-            
-            .logo-container {
-                flex-direction: row;
-            }
-            
-            .hollywood-logo {
-                margin-right: 20px;
-                margin-bottom: 0;
-                height: 100px;
-            }
-            
-            .btn {
-                width: auto;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            .container {
-                max-width: 720px;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .card-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            
-            .hollywood-logo {
-                height: 120px;
-            }
-        }
-        
-        @media (min-width: 992px) {
-            .container {
-                max-width: 960px;
-            }
-            
-            .hollywood-logo {
-                height: 140px;
-            }
-        }
-        
-        @media (min-width: 1200px) {
-            .container {
-                max-width: 1140px;
-            }
-            
-            .hollywood-logo {
-                height: 160px;
-            }
-        }
-        
-        /* Animation for table rows */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        
-        /* Profit visualization bars */
-        .profit-bar-container {
-            height: 25px;
-            background-color: #ddd;
-            border-radius: 12px;
-            overflow: hidden;
-            margin: 10px 0;
             position: relative;
-            border: 1px solid #333;
+            z-index: 1;
         }
         
-        .profit-bar {
-            height: 100%;
-            border-radius: 12px;
-            width: 0;
-            transition: width 1.5s ease-in-out;
-            background: linear-gradient(90deg, #000, var(--universal-gold));
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 10px;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-        
-        /* Investment section */
-        .investment-section {
-            background: linear-gradient(135deg, rgba(255, 184, 28, 0.1), rgba(255, 255, 255, 0.1));
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-            border: 2px solid #333;
-            width: 100%;
-        }
-        
-        .investment-section h2, .investment-section th, .investment-section td {
-            color: var(--dark-text);
-        }
-        
+        /* Section titles */
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
             color: var(--universal-gold);
-            border-left: 4px solid var(--universal-gold);
             padding-left: 10px;
-            background-color: #000;
+            border-left: 4px solid var(--universal-gold);
             padding: 10px;
             border-radius: 5px;
-            color: var(--universal-gold);
+            background-color: rgba(0, 0, 0, 0.7);
+            margin-top: 10px;
+            position: relative;
+        }
+        
+        /* Red carpet effect for section titles */
+        .section-title::before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--universal-gold), #8B0000, var(--universal-gold));
+            border-radius: 2px;
         }
         
         /* Dark section with visible text */
         .dark-section {
             background-color: #000;
             color: var(--light-text);
-            padding: 20px;
+            padding: 20px 15px;
             margin: 20px 0;
-            border-radius: 12px;
+            border-radius: 10px;
             border: 2px solid var(--universal-gold);
+            position: relative;
         }
         
         .dark-section h2, .dark-section h3 {
@@ -480,23 +559,78 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
+        /* Investment section */
+        .investment-section {
+            background: linear-gradient(135deg, rgba(255, 184, 28, 0.08), rgba(255, 255, 255, 0.05));
+            padding: 20px 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #333;
+            width: 100%;
+            position: relative;
+        }
+        
+        /* Animation for table rows */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        /* Profit visualization bars */
+        .profit-bar-container {
+            height: 25px;
+            background-color: #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 8px 0;
+            position: relative;
+            border: 1px solid #333;
+        }
+        
+        .profit-bar {
+            height: 100%;
+            border-radius: 12px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+            background: linear-gradient(90deg, #000, var(--universal-gold));
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        
         /* Mobile menu for small screens */
         .mobile-menu {
-            display: none;
+            display: flex;
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background-color: #000;
-            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 10px 5px;
             z-index: 1000;
             border-top: 3px solid var(--universal-gold);
             box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
         }
         
         .mobile-menu-nav {
             display: flex;
             justify-content: space-around;
+            width: 100%;
         }
         
         .mobile-menu-item {
@@ -505,59 +639,39 @@
             align-items: center;
             color: var(--universal-gold);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             transition: transform 0.3s;
+            padding: 5px;
+            flex: 1;
         }
         
-        .mobile-menu-item:hover {
-            transform: translateY(-5px);
+        .mobile-menu-item:hover, .mobile-menu-item:active {
+            transform: translateY(-3px);
         }
         
         .mobile-menu-item i {
             font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        
-        @media (max-width: 576px) {
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hollywood-logo {
-                height: 80px;
-            }
+            margin-bottom: 3px;
         }
         
         /* Additional styling for legitimacy */
         .disclaimer {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #999;
-            margin-top: 10px;
+            margin-top: 8px;
             text-align: center;
-        }
-        
-        .contact-info {
-            background-color: rgba(255, 184, 28, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            border-left: 4px solid var(--universal-gold);
-            color: var(--dark-text);
-        }
-        
-        .contact-info p {
-            color: var(--dark-text);
+            line-height: 1.4;
         }
         
         .stat-badge {
             display: inline-block;
             background-color: var(--universal-gold);
             color: #000;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.7rem;
             font-weight: bold;
-            margin-right: 5px;
+            margin-right: 4px;
             margin-bottom: 5px;
         }
         
@@ -589,23 +703,141 @@
             color: var(--dark-text) !important;
         }
         
-        /* Logo styling fix */
-        .universal-logo {
-            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Universal_Studios_logo.svg/2560px-Universal_Studios_logo.svg.png') no-repeat center center;
-            background-size: contain;
-            height: 80px;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            filter: invert(1);
+        /* Improved mobile responsiveness */
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .endorsement {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .endorsement-image {
+                margin-right: 20px;
+                margin-bottom: 0;
+                width: 120px;
+                height: 120px;
+            }
+            
+            .logo-container {
+                flex-direction: row;
+            }
+            
+            .logo-img {
+                margin-right: 20px;
+                margin-bottom: 0;
+                max-width: 200px;
+            }
+            
+            .btn {
+                width: auto;
+                max-width: 250px;
+            }
+            
+            .mobile-menu {
+                display: none;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            h1 {
+                font-size: 2.3rem;
+            }
+            
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .logo-img {
+                max-width: 250px;
+            }
+            
+            body {
+                padding-bottom: 0;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+            
+            .logo-img {
+                max-width: 280px;
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+            
+            .logo-img {
+                max-width: 300px;
+            }
+        }
+        
+        /* Touch-friendly improvements */
+        @media (hover: none) and (pointer: coarse) {
+            .btn:hover {
+                transform: none;
+            }
+            
+            .btn:active {
+                background-color: #e6a400;
+                transform: scale(0.98);
+            }
+            
+            .mobile-menu-item:hover {
+                transform: none;
+            }
+            
+            .mobile-menu-item:active {
+                transform: translateY(-3px);
+            }
+        }
+        
+        /* Prevent text selection on interactive elements */
+        .btn, .mobile-menu-item {
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
     </style>
 </head>
 <body>
+    <!-- Film strip borders -->
+    <div class="film-border"></div>
+    <div class="film-border bottom"></div>
+    
+    <!-- Spotlights -->
+    <div class="spotlight spotlight-1"></div>
+    <div class="spotlight spotlight-2"></div>
+    
     <div class="container">
         <header>
             <div class="logo-container">
-                <div class="universal-logo"></div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Universal_Studios_logo.svg/2560px-Universal_Studios_logo.svg.png" 
+                     alt="Universal Studios" class="logo-img">
                 <div>
                     <h1>Universal Studios</h1>
                     <div class="tagline">Investment Opportunity: "Socrates: The Unexamined Life"</div>
@@ -977,11 +1209,15 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
         });
+        
+        // Touch-friendly improvements
+        document.addEventListener('touchstart', function() {}, {passive: true});
     </script>
 </body>
 </html>
